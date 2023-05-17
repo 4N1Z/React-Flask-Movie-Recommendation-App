@@ -3,10 +3,17 @@
     /* width: 130px;
     height: 55.59px;
     */
-    margin-top: 2em; 
+    /* margin-top: 2em; 
     margin-bottom: 15px;
-    margin-left: 10px;
+    margin-left: 10px; */
 }
+.header{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 2em;
+}
+
 @keyframes bouncy {
     0% {
         top: 0em;

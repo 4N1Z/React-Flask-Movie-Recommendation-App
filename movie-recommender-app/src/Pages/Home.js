@@ -161,14 +161,14 @@ const Home = () => {
   return (
     <div className="container-fluid">
       <div className="HomePage">
-        <NavBar isHome={false} />
+        <NavBar seaarchOn = {list} isHome={false} />
         <div className="HomeSearch">
           <h2 className="genreHeader">
             Get Movies Based on your <span>Mood</span>{" "}
           </h2>
           <h3 className="subTitle"> How are you feeling today?</h3>
           {/*Rendering the searchbar */}
-          <SearchBar movies={list} placeholder="Search for a Movie" />
+          {/* <SearchBar movies={list} placeholder="Search for a Movie" /> */}
         </div>
 
         {visibility && (
