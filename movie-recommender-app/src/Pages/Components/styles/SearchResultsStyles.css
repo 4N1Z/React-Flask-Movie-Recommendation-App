@@ -192,8 +192,10 @@
     border-radius: 5px;
     padding-inline: 10em;
     display: grid;
+    
     grid-template-columns: 1fr 1fr;
     gap: 1em;
+    padding-block: 2em;
 
   }
   .reviewContainer h3{

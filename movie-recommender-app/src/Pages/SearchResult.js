@@ -222,9 +222,9 @@ const SearchResult = () => {
                 <div>
                   <button
                     className="trailer-bttn"
-                    onClick={() => {
+                    onClick = {() => {
                       setAddMovie(searchedMovie);
-
+                      alert('Added to Wishlist');
                       <Wishlist searchedMovie={addMovie} />;
                     }}
                   >
