@@ -78,7 +78,12 @@
     justify-content: center;
     text-align: center;
 }
-
+.btnsbar1{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    
+}
 .searchItem:hover {
     background-color: #303030;
     color: #fff !important;

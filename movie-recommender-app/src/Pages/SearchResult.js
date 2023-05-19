@@ -209,27 +209,29 @@ const SearchResult = () => {
                 {" : "}
                 {currGenre ? displayGenre() : null}
               </div>
-              <div>
-                <button
-                  className="trailer-bttn "
-                  onClick={() => setPlayTrailer(true)}
-                >
-                  <i className="fa-solid fa-play"></i>
-                  {" Watch Trailer"}
-                </button>
-              </div>
-              <div>
-                <button
-                  className="wishlist-bttn"
-                  onClick={() => {
-                    setAddMovie(searchedMovie);
-                    
-                    <Wishlist searchedMovie={addMovie} />
-                  }}
-                >
-                  <i className="fa-solid fa-plus"></i>
-                  {"Add to wishlist"}
-                </button>
+              <div className="btnsbar1">
+                <div>
+                  <button
+                    className="trailer-bttn"
+                    onClick={() => setPlayTrailer(true)}
+                  >
+                    <i className="fa-solid fa-play"></i>
+                    {" Watch Trailer"}
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className="trailer-bttn"
+                    onClick={() => {
+                      setAddMovie(searchedMovie);
+
+                      <Wishlist searchedMovie={addMovie} />;
+                    }}
+                  >
+                    <i className="fa-solid fa-plus"></i>
+                    {"Add to wishlist"}
+                  </button>
+                </div>
               </div>
             </div>
             <div className="col-md-6 col-md-pull-6 text-center">
@@ -248,12 +250,35 @@ const SearchResult = () => {
           Close Trailer
         </button>
       </div>
+      <div className="reviewContainer">
+      <h3>Reviews</h3>
+      <br/>
+        <div className="indiReview">
+          <p>
+            <span>Chris Fox</span>
+          </p>
+          <p>Really great movie</p>
+        </div>
+        <div className="indiReview">
+          <p>
+            <span>Aniz</span>
+          </p>
+          <p>Gooid.</p>
+        </div>
+        <div className="indiReview">
+          <p>
+            <span>SSW</span>
+          </p>
+          <p>Really loved the artowrk and in love</p>
+        </div>
+      </div>
 
       <div className="container-fluid recommendedMovies">
         <h2 className=" container RecommendHeading">Recommended Movies</h2>
         {/*Rendering the recommended movie cards */}
         <div className="container recommendedGrid">{RenderMovies()}</div>
       </div>
+      <div></div>
       <Footer />
     </div>
   );

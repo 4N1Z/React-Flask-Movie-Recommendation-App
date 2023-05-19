@@ -11,7 +11,7 @@ const NavBar = ( props,{isHome }) => {
 
         <div className="container header">
             <Link to="/home">
-                 <img src={Logo} className="logo" alt="" />
+                <img src={Logo} className="logo" alt="" />
             </Link>
             {/* <Link to ='/wishlist' >
                 <h1>Wishlist</h1>
