@@ -10,7 +10,7 @@ const NavBar = ( props,{isHome }) => {
     return (
 
         <div className="container header">
-            <Link to="/ ">
+            <Link to="/home">
                  <img src={Logo} className="logo" alt="" />
             </Link>
             {/* <Link to ='/wishlist' >
