@@ -161,7 +161,7 @@ const Home = () => {
   return (
     <div className="container-fluid">
       <div className="HomePage">
-        <NavBar seaarchOn = {list} isHome={false} />
+        <NavBar searchOn = {list} isHome={false} />
         <div className="HomeSearch">
           <h2 className="genreHeader">
             Get Movies Based on your <span>Mood</span>{" "}

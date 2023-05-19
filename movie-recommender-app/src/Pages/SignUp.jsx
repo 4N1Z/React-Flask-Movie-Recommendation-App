@@ -28,7 +28,7 @@ function SignUp() {
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username">Username:</label>
+          {/* <label htmlFor="username">Username:</label> */}
           <input
             type="text"
             id="username"

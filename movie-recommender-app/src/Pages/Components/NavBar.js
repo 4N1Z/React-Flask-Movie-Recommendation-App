@@ -13,9 +13,9 @@ const NavBar = ( props,{isHome }) => {
             <Link to="/ ">
                  <img src={Logo} className="logo" alt="" />
             </Link>
-            <Link to ='/wishlist' >
+            {/* <Link to ='/wishlist' >
                 <h1>Wishlist</h1>
-            </Link>
+            </Link> */}
             {/* if isHome then the button is the github button else its the home button*/}
             {isHome ? (
                 <a href="/" className="header-btn1 bouncy">

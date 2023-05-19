@@ -53,11 +53,11 @@ function Login({ setIsLoggedIn }) {
     if (showSignUp) {
         return (
             <div className='loginPage'>
-                <h2>Login</h2>
+                <h2>Login To your account</h2>
                 <form onSubmit={handleSubmit} >
                     <div className="formContainer">
                         <div className='form login'>
-                            <label htmlFor="username"></label>
+                            {/* <label htmlFor="username"></label> */}
                             <input
                                 type="text"
                                 id="username"
@@ -67,7 +67,7 @@ function Login({ setIsLoggedIn }) {
                             />
                         </div>
                         <div className='form login'>
-                            <label htmlFor="password"></label>
+                            {/* <label htmlFor="password"></label> */}
                             <input
                                 type="password"
                                 id="password"
@@ -77,13 +77,17 @@ function Login({ setIsLoggedIn }) {
                             />
                         </div>
                     </div>
-                    <div className="btnsBar">
-                        <button type="button" onClick={handleSubmit}>
+                    <div className="btnsBar1">
+                        <button type="submit" onClick={handleSubmit}>
                             Login
                         </button>
-                        <button type="button" onClick={handleSignUpToggle}>
+                        {/* <button type="submit" onClick={handleSignUpToggle}>
                             Sign Up
-                        </button>
+                        </button> */}
+                        <div className="signUp">
+                            Don't have an account ?   
+                             <a onClick={handleSignUpToggle} href="#" >Sign Up</a>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -117,13 +121,14 @@ function Login({ setIsLoggedIn }) {
                         />
                     </div>
                 </div>
-                <div className="btnsBar">
-                    <button type="button" onClick={handleSignUp}>
+                <div className="btnsBar1">
+                    <button type="submit" onClick={handleSignUp}>
                         Create Your Account
                     </button>
-                    <button type="button" onClick={handleSignUpToggle}>
+                    {/* <button type="submit" onClick={handleSignUpToggle}>
                         Back to login.
-                    </button>
+                    </button> */}
+                    <a className="loginButtonText" onClick={handleSignUpToggle} href="#">Back to Login</a>
                 </div>
             </form>
         </div>

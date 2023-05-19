@@ -11,7 +11,7 @@ body{
     min-height: 100vh;
     color: #fff;
 }
-.loginPage{
+.formPage{
 
     box-sizing: border-box;
 
@@ -19,6 +19,13 @@ body{
     margin-right: auto;
     max-width: 320px;
     max-width: 20rem; */
+    
+}
+.loginPage{
+    display: flex;
+    /* flex-direction: column;
+    align-items: center; */
+
     padding-top: 10em;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -35,29 +42,36 @@ body{
     justify-content: center;
     text-align: center;
 }
-
-/* .formContainer{
+.btnsBar1{
     display: flex;
-    flex-direction: row;
-    
-} */
+    flex-direction: column;
+
+}
 .btnsBar{
     display: flex;
     flex-direction: row;
     gap: 1em;
 }
-
+.signUp{
+    padding-top: 10px;
+}
+.loginButtonText{
+    padding-top: 10px;
+}
+a{
+    color:#ea4c88;
+}
 input {
     background-image: none;
     border: 0;
-    color: inherit;
-    font: inherit;
+
     margin: 0;
     outline: 0;
     padding: 0;
     -webkit-transition: background-color .3s;
     transition: background-color .3s
 }
+
 input[type=submit] {
     cursor: pointer
 }
@@ -67,7 +81,7 @@ input[type=submit] {
 .form input[type=submit] {
     width: 100%
 }
-.form__field {
+.form{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -75,50 +89,48 @@ input[type=submit] {
     margin: .875rem
 }
 
-.form__input {
+.form{
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1
 }
+/* .form input{
+    margin-block: 1em;
 
-.login {
+} */
+.form {
     color: #eee
 }
 
-.login label,
-.login input[type=text],
-.login input[type=password],
-.login input[type=submit] {
+
+.form input[type=text],
+.form input[type=password],
+.form input[type=submit] {
     border-radius: .25rem;
     padding: 16px;
-    padding: 1rem
+    padding: .85rem
 }
 
 button {
+    border-radius: 5px;
     background-color: #004497;
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-    padding-left: 20px;
-    padding-left: 1.25rem;
-    padding-right: 20px;
-    padding-right: 1.25rem
 }
 
-.login input[type=password],
-.login input[type=text] {
-    background-color: #3b4148;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0
+.form input[type=password],
+.form input[type=text] {
+    width: 22em;
+    background-color: rgb(63, 63, 63);
+
 }
 
-.login input[type=password]:focus,
-.login input[type=password]:hover,
-.login input[type=text]:focus,
-.login input[type=text]:hover {
-    background-color: #434a52
+.form input[type=password]:focus,
+.form input[type=password]:hover,
+.form input[type=text]:focus,
+.form input[type=text]:hover {
+    background-color: #cdcdcd
 }
 
-.login input[type=submit] {
+.form input[type=submit] {
     background-color: #ea4c88;
     color: #eee;
     font-weight: 700;
