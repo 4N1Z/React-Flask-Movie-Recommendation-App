@@ -22,15 +22,7 @@ const NavBar = ( props,{isHome }) => {
                     <i className="fas fa-home"></i> Home
                 </a>
             ) : (
-                <SearchBar movies={props} placeholder="Search for a Movie" />
-                // <a
-                //     href={makerLink}
-                //     target="_blank"
-                //     rel="noreferrer"
-                //     className="header-btn1 bouncy"
-                // >
-                //     <i className="fa-brands fa fa-angellist"></i> Aniz
-                // </a>
+                <SearchBar movies = {props.searchOn} placeholder="Search for a Movie" />
             )}
 
         </div>
