@@ -24,16 +24,18 @@ function BarChart(props) {
             const randomValue = Math.floor(Math.random() * 10) + 1; // Generate random value from 1 to 10
             labels.push(randomValue);
         }
+        labels.push(searchedMovie.vote_average);
         return labels;
+
       };
       
       // Number of labels to generate
-      const labelCount = 10;
+      const labelCount = 4;
       
       // Generate random labels
       const randomLabels = generateRandomLabels(labelCount);
       console.log(randomLabels)
-      console.log(searchedMovie)
+      console.log([...randomLabels,searchedMovie.vote_average])
       
 
   const data = {
@@ -59,7 +61,17 @@ function BarChart(props) {
       y: {
         min: 0,
         max: 10,
+        title:{
+            display:true,
+            text: "Rating"
+        }
       },
+      x:{
+        title:{
+            display:true,
+            text:"Year"
+        }
+      }
     },
   };
 

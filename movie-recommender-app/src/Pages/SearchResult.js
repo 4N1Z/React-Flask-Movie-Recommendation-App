@@ -277,11 +277,9 @@ const SearchResult = () => {
           <p>Really loved the artowrk and in love</p>
         </div>
       </div>
-      {/* <Bar data={data}/>; */}
-      {console.log(searchedMovie.title)}
+      <BarChart searchedMovie={searchedMovie}/>
      
     
-      <BarChart searchedMovie={searchedMovie}/>
 
 
       <div className="container-fluid recommendedMovies">
