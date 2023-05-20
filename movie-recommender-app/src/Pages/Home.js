@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
   const apiKey = "api_key=43ced63edc709f31aa0d76ba4451e0d2";
+ 
+  // const apiKey = "914180e8c3msh4756bc1d865af7fp101629jsn812eeb3481da";
   const [list, setList] = useState([]);
   const [homeGenreList, setHomeGenreList] = useState([{}]);
   const [selectedGenres, setSelectedGenres] = useState([]);

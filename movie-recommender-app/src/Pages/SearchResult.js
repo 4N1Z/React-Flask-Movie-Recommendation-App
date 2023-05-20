@@ -6,6 +6,9 @@ import NavBar from "./Components/NavBar";
 import ReactPlayer from "react-player";
 import Footer from "./Components/Footer";
 import Wishlist from "./Components/Wishlist";
+import BarChart from "./Components/BarChart";
+
+import { Bar,Line } from "react-chartjs-2";
 
 const SearchResult = () => {
   const params = useParams();
@@ -39,6 +42,7 @@ const SearchResult = () => {
     }
   };
 
+ 
   const gotRecommendedData = (apiData) => {
     setRecommendedMovies([]);
     let counter = 16;
@@ -225,11 +229,11 @@ const SearchResult = () => {
                     onClick = {() => {
                       setAddMovie(searchedMovie);
                       alert('Added to Wishlist');
-                      <Wishlist searchedMovie={addMovie} />;
+                      <Wishlist searchedMovie={addMovie}/>;
                     }}
                   >
                     <i className="fa-solid fa-plus"></i>
-                    {"Add to wishlist"}
+                    {"Already Watched"}
                   </button>
                 </div>
               </div>
@@ -250,6 +254,7 @@ const SearchResult = () => {
           Close Trailer
         </button>
       </div>
+      
       <div className="reviewContainer">
       <h3>Reviews</h3>
       <br/>
@@ -272,6 +277,12 @@ const SearchResult = () => {
           <p>Really loved the artowrk and in love</p>
         </div>
       </div>
+      {/* <Bar data={data}/>; */}
+      {console.log(searchedMovie.title)}
+     
+    
+      <BarChart searchedMovie={searchedMovie}/>
+
 
       <div className="container-fluid recommendedMovies">
         <h2 className=" container RecommendHeading">Recommended Movies</h2>
