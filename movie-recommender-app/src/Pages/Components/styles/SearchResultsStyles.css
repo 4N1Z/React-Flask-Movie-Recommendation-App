@@ -64,7 +64,7 @@
 }
 
 .trailer-bttn {
-    margin-top: 15px;
+    /* margin-top: 15px; */
     text-decoration: none !important;
     color: #fff !important;
     border-radius: 0.4em;
@@ -130,6 +130,25 @@
 }
 .DisplayOFF {
     display: none;
+}
+
+.addingBtn , .addedBtn{
+    display: flex;
+    font-size: large;
+    font-family: 'Montserrat';
+    width: 7.3em;
+    height: 35px;
+    /* text-align: center; */
+    align-items: center;
+}
+.addingBtn i, .addedBtn i{
+    padding: 0px;
+    font-size: 12px;
+
+}
+
+.addedBtn{
+    background-color:green;
 }
 @media screen and (max-width: 1080px) {
     .recommendedGrid {

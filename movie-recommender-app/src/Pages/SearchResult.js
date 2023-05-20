@@ -8,7 +8,7 @@ import Footer from "./Components/Footer";
 import Wishlist from "./Components/Wishlist";
 import BarChart from "./Components/BarChart";
 
-import { Bar,Line } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 
 const SearchResult = () => {
   const params = useParams();
@@ -22,6 +22,7 @@ const SearchResult = () => {
   const [videoData, setVideoData] = useState([]);
   const [playTrailer, setPlayTrailer] = useState(0);
   const [addMovie, setAddMovie] = useState([]);
+  const [addToList, setAddToList] = useState(true);
   const gotCast = (castData) => {
     setCastMembers([]);
 
@@ -42,7 +43,6 @@ const SearchResult = () => {
     }
   };
 
- 
   const gotRecommendedData = (apiData) => {
     setRecommendedMovies([]);
     let counter = 16;
@@ -145,6 +145,16 @@ const SearchResult = () => {
       return null;
     });
 
+  const handleClick = () => {
+    if(addToList){
+      alert("Added to Wishlist");
+    }else{
+      alert("Removed from list")
+    }
+    setAddToList(!addToList);
+    <Wishlist searchedMovie={addMovie} />;
+  };
+
   const imgLink = "https://image.tmdb.org/t/p/original";
   const backdropPath = "https://image.tmdb.org/t/p/w1280";
 
@@ -217,23 +227,16 @@ const SearchResult = () => {
                 <div>
                   <button
                     className="trailer-bttn"
-                    onClick={() => setPlayTrailer(true)}
+                    onClick={() => setPlayTrailer(false)}
                   >
                     <i className="fa-solid fa-play"></i>
                     {" Watch Trailer"}
                   </button>
                 </div>
-                <div>
-                  <button
-                    className="trailer-bttn"
-                    onClick = {() => {
-                      setAddMovie(searchedMovie);
-                      alert('Added to Wishlist');
-                      <Wishlist searchedMovie={addMovie}/>;
-                    }}
-                  >
-                    <i className="fa-solid fa-plus"></i>
-                    {"Already Watched"}
+                <div >
+                  <button className={addToList ? "addingBtn" : "addedBtn"} onClick={handleClick}>
+                  {addToList ?  <i className="fa-solid fa-plus"> Add to List </i> :
+                     <i className="fa-solid fa-check">   Added</i> }
                   </button>
                 </div>
               </div>
@@ -254,10 +257,10 @@ const SearchResult = () => {
           Close Trailer
         </button>
       </div>
-      
+
       <div className="reviewContainer">
-      <h3>Reviews</h3>
-      <br/>
+        <h3>Reviews</h3>
+        <br />
         <div className="indiReview">
           <p>
             <span>Chris Fox</span>
@@ -277,10 +280,7 @@ const SearchResult = () => {
           <p>Really loved the artowrk and in love</p>
         </div>
       </div>
-      <BarChart searchedMovie={searchedMovie}/>
-     
-    
-
+      <BarChart searchedMovie={searchedMovie} />
 
       <div className="container-fluid recommendedMovies">
         <h2 className=" container RecommendHeading">Recommended Movies</h2>
