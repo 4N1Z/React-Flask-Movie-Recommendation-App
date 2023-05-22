@@ -6,36 +6,66 @@ import './Components/styles/Login.css'
 
 function Login({ setIsLoggedIn }) {
     const navigate = useNavigate();
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+
+    const [enteredUsername, setEnteredUsername] = useState('')
+    const [enteredPassword, setEnteredPassword] = useState('')
+    const [username, setUsername] = useState(['']);
+    const [password, setPassword] = useState(['']);
     const [showSignUp, setShowSignUp] = useState(true);
+    const [confirmPassword, setConfirmPassword] = useState('');
+
     // const [isCorrect, setIsCorrect] = useState(false)
 
     const handleUsernameChange = (e) => {
+        setUsername(e.target.value);
+    };
+    const handleEnteredUsernameChange = (e) => {
+        setEnteredUsername(e.target.value);
+        console.log(e.target.value)
         setUsername(e.target.value);
     };
 
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
     };
-    const handleConfirmPasswordChange = (e) => {
+    const handleEnteredPasswordChange = (e) => {
+        setEnteredPassword(e.target.value);
+        console.log(e.target.value);
         setPassword(e.target.value);
+
+    };
+    const handleConfirmPasswordChange = (e) => {
+        setConfirmPassword(e.target.value);
     };
 
     const handleSignUpToggle = () => {
         setShowSignUp(!showSignUp);
-        
+
     };
 
-    const handleSignUp = () => {
+    // const handleSignUp = () => {
+
+    //     setIsLoggedIn(true);
+    //     navigate('/Home');
+    //     alert("created account successfully");
+
+
+    // }
+
+
+    const handleSignUp = (e) => {
+        e.preventDefault();
+
+        // Perform validation or other necessary checks here
+       
+
+        // Store the username and password in a state or send it to an API
+        console.log('Username:', username);
+        console.log('Password:', password);
 
         setIsLoggedIn(true);
-        // alert('Success');
         navigate('/Home');
-        alert("created account successfully");
-
-
-    }
+    };
 
 
 
@@ -43,12 +73,28 @@ function Login({ setIsLoggedIn }) {
         e.preventDefault();
         console.log("ITS ON");
 
+        const hasUserName = username.includes(enteredUsername)
+        const hasPassword = password.includes(enteredPassword);
+
         // Perform login validation here
         // For simplicity, let's assume username: "admin" and password: "password" are valid
-        if (username === 'admin' && password === 'password') {
+        if (enteredUsername === username && enteredPassword === password) {
             setIsLoggedIn(true);
             // alert('Success');
-            navigate('/Home'); // Redirect to the home page
+            navigate('/Home');
+             // Redirect to the home page
+        }else if(hasPassword && hasUserName){
+            setIsLoggedIn(true);
+            // alert('Success');
+            navigate('/Home');
+
+        }else if(enteredUsername === "admin" && enteredPassword === "12345678"){
+
+            setIsLoggedIn(true);
+            // alert('Success');
+            navigate('/Home');
+
+
         } else {
             alert('Invalid credentials: Retry');
             console.log('Invalid credentials'); // Display an error message or perform appropriate action
@@ -75,7 +121,7 @@ function Login({ setIsLoggedIn }) {
                                 type="text"
                                 id="username"
                                 value={username}
-                                onChange={handleUsernameChange}
+                                onChange={handleEnteredUsernameChange}
                                 placeholder='Username'
                             />
                         </div>
@@ -85,7 +131,7 @@ function Login({ setIsLoggedIn }) {
                                 type="password"
                                 id="password"
                                 value={password}
-                                onChange={handlePasswordChange}
+                                onChange={handleEnteredPasswordChange}
                                 placeholder='Password'
                             />
                         </div>
@@ -103,7 +149,7 @@ function Login({ setIsLoggedIn }) {
                         </div>
                     </div>
                 </form>
-             
+
             </div>
         );
     }
@@ -117,7 +163,7 @@ function Login({ setIsLoggedIn }) {
 
             </div>
             <h2>Sign Up</h2>
-            <form onSubmit={handleSubmit} >
+            <form onSubmit={handleSignUp} >
                 <div className="formContainer">
 
 
@@ -128,7 +174,7 @@ function Login({ setIsLoggedIn }) {
                             id="username"
                             value={username}
                             placeholder='Create a User'
-                        onChange={handleUsernameChange}
+                            onChange={handleUsernameChange}
                         />
                     </div>
                     <div className='form login'>
@@ -138,7 +184,7 @@ function Login({ setIsLoggedIn }) {
                             id="password"
                             value={password}
                             placeholder='Enter Password'
-                        onChange={handlePasswordChange}
+                            onChange={handlePasswordChange}
                         />
                     </div>
                     <div className='form login'>
@@ -148,12 +194,13 @@ function Login({ setIsLoggedIn }) {
                             id="password"
                             value={password}
                             placeholder='Confirm Password'
-                        onChange={handleConfirmPasswordChange}
+                            onChange={handleConfirmPasswordChange}
                         />
                     </div>
                 </div>
                 <div className="btnsBar1">
-                    <button type="submit" onClick={handleSignUp}>
+                    <button type="submit">
+                        {/* <button type="submit" onClick={handleSignUp}> */}
                         Create Your Account
                     </button>
                     {/* <button type="submit" onClick={handleSignUpToggle}>
@@ -162,20 +209,7 @@ function Login({ setIsLoggedIn }) {
                     <a className="loginButtonText" onClick={handleSignUpToggle} href="#">Back to Login</a>
                 </div>
             </form>
-            {/* <div class="area" >
-                <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div > */}
+
         </div>
 
 
