@@ -19,7 +19,9 @@ function Login({ setIsLoggedIn }) {
     const handleUsernameChange = (e) => {
         setUsername(e.target.value);
     };
+
     const handleEnteredUsernameChange = (e) => {
+        
         setEnteredUsername(e.target.value);
         console.log(e.target.value)
         setUsername(e.target.value);
@@ -71,21 +73,18 @@ function Login({ setIsLoggedIn }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("ITS ON");
+        // console.log("ITS ON");
 
         const hasUserName = username.includes(enteredUsername)
         const hasPassword = password.includes(enteredPassword);
 
         // Perform login validation here
         // For simplicity, let's assume username: "admin" and password: "password" are valid
-        if (enteredUsername === username && enteredPassword === password) {
+     if(hasPassword && hasUserName){
             setIsLoggedIn(true);
-            // alert('Success');
-            navigate('/Home');
-             // Redirect to the home page
-        }else if(hasPassword && hasUserName){
-            setIsLoggedIn(true);
-            // alert('Success');
+ 
+            console.log(username)
+
             navigate('/Home');
 
         }else if(enteredUsername === "admin" && enteredPassword === "12345678"){

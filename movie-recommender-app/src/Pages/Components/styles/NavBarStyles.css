@@ -106,3 +106,8 @@
         margin-top: 18px;
     }
 }
+.wishlistBtn{
+    font-size: 12px;
+    color: #d6d6d6;
+    text-transform: uppercase;
+}

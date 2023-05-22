@@ -17,7 +17,7 @@ const NavBar = ( props,{isHome }) => {
                 <img src={Logo} className="logo" alt="" />
             </Link>
             <Link to ='/wishlist' >
-                <h4>Wishlist</h4>
+                <h4 className="wishlistBtn">Wishlist</h4>
             </Link>
             </div>
             
