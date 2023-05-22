@@ -16,7 +16,8 @@
 }
 .BAR {
     margin: 0 auto;
-    width: 100%;
+    width: max-content;
+    width: 300px;
     border-radius: 3px;
     background-color: #ffffff;
     border: 1px solid #ffffff;
@@ -24,6 +25,7 @@
     justify-content: center;
     height: 35px;
     color: red;
+
 }
 
 .BAR:hover {

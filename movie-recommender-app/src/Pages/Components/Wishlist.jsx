@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Wishlist = ({ movies }) => {
 
   const apiKey = "api_key=43ced63edc709f31aa0d76ba4451e0d2";
- 
+
   // const apiKey = "914180e8c3msh4756bc1d865af7fp101629jsn812eeb3481da";
   const [list, setList] = useState([]);
   const [homeGenreList, setHomeGenreList] = useState([{}]);
@@ -59,17 +59,16 @@ const Wishlist = ({ movies }) => {
 
   return (
     <div wishListMainContainer>
-     
-     
+
       <div className="  HomeMovies">
-      <Link to = "/home">
-        <h2>My Wishlist</h2>
-      </Link>
+        <Link to="/home">
+          <h2 className="wishListTitle">My Wishlist</h2>
+        </Link>
         <div className="container HomeMovieGrid">
           {currMovies.length > 0 ? renderMovies() : null}
         </div>
       </div>
-     
+
     </div>
   );
 };

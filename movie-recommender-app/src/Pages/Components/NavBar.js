@@ -10,16 +10,17 @@ const NavBar = ( props,{isHome }) => {
     return (
 
         <div className="container header">
-            <div className="homeNwihslist">
+            
 
             
             <Link to="/home">
                 <img src={Logo} className="logo" alt="" />
             </Link>
+            <div className="homeNwihslist">
             <Link to ='/wishlist' >
                 <h4 className="wishlistBtn">Wishlist</h4>
             </Link>
-            </div>
+           
             
             {/* if isHome then the button is the github button else its the home button*/}
             {isHome ? (
@@ -29,6 +30,7 @@ const NavBar = ( props,{isHome }) => {
             ) : (
                 <SearchBar movies = {props.searchOn} placeholder="Search for a Movie" />
             )}
+             </div>
 
         </div>
     );

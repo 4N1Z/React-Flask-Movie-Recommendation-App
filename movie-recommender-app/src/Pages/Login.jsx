@@ -9,8 +9,8 @@ function Login({ setIsLoggedIn }) {
 
     const [enteredUsername, setEnteredUsername] = useState('')
     const [enteredPassword, setEnteredPassword] = useState('')
-    const [username, setUsername] = useState(['']);
-    const [password, setPassword] = useState(['']);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const [showSignUp, setShowSignUp] = useState(true);
     const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -21,7 +21,7 @@ function Login({ setIsLoggedIn }) {
     };
 
     const handleEnteredUsernameChange = (e) => {
-        
+
         setEnteredUsername(e.target.value);
         console.log(e.target.value)
         setUsername(e.target.value);
@@ -38,6 +38,7 @@ function Login({ setIsLoggedIn }) {
     };
     const handleConfirmPasswordChange = (e) => {
         setConfirmPassword(e.target.value);
+
     };
 
     const handleSignUpToggle = () => {
@@ -45,25 +46,20 @@ function Login({ setIsLoggedIn }) {
 
     };
 
-    // const handleSignUp = () => {
-
-    //     setIsLoggedIn(true);
-    //     navigate('/Home');
-    //     alert("created account successfully");
-
-
-    // }
-
+    const savePassword = () => {
+        setPassword((prevPasswords) => [...prevPasswords, password]);
+    };
+    const saveUsername = () => {
+        setUsername((prevUsername) => [...prevUsername, username]);
+    };
 
     const handleSignUp = (e) => {
         e.preventDefault();
 
-        // Perform validation or other necessary checks here
-       
-
-        // Store the username and password in a state or send it to an API
         console.log('Username:', username);
         console.log('Password:', password);
+        savePassword();
+        saveUsername();
 
         setIsLoggedIn(true);
         navigate('/Home');
@@ -75,29 +71,35 @@ function Login({ setIsLoggedIn }) {
         e.preventDefault();
         // console.log("ITS ON");
 
-        const hasUserName = username.includes(enteredUsername)
-        const hasPassword = password.includes(enteredPassword);
+        // const hasUserName = username.includes(enteredUsername);
+        // console.log(enteredPassword)
+        // const hasPassword = password.includes(enteredPassword);
 
-        // Perform login validation here
-        // For simplicity, let's assume username: "admin" and password: "password" are valid
-     if(hasPassword && hasUserName){
+        const hasUserName = username === enteredUsername;
+        const hasPassword = password === enteredPassword;
+
+        if (hasPassword && hasUserName) {
             setIsLoggedIn(true);
- 
+
             console.log(username)
 
             navigate('/Home');
 
-        }else if(enteredUsername === "admin" && enteredPassword === "12345678"){
-
-            setIsLoggedIn(true);
-            // alert('Success');
-            navigate('/Home');
-
-
-        } else {
-            alert('Invalid credentials: Retry');
-            console.log('Invalid credentials'); // Display an error message or perform appropriate action
         }
+        else
+            if (enteredUsername === "admin" && enteredPassword === "12345678") {
+
+                setIsLoggedIn(true);
+                // alert('Success');
+                console.log(enteredPassword)
+                navigate('/Home');
+
+
+            }
+            else {
+                alert('Invalid credentials: Retry');
+                console.log('Invalid credentials'); // Display an error message or perform appropriate action
+            }
     };
 
     if (showSignUp) {
@@ -119,7 +121,7 @@ function Login({ setIsLoggedIn }) {
                             <input
                                 type="text"
                                 id="username"
-                                value={username}
+                                value={enteredUsername}
                                 onChange={handleEnteredUsernameChange}
                                 placeholder='Username'
                             />
@@ -129,7 +131,7 @@ function Login({ setIsLoggedIn }) {
                             <input
                                 type="password"
                                 id="password"
-                                value={password}
+                                value={enteredPassword}
                                 onChange={handleEnteredPasswordChange}
                                 placeholder='Password'
                             />

@@ -10,14 +10,18 @@
 .header{
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:1fr 0.5fr;
     padding-top: 2em;
    
 }
 .homeNwihslist{
+    /* display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    gap: 10px; */
+
     display: flex;
-    flex-direction: row;
-    gap: 20px;
+    align-items: center;
+    align-items: center;
 
 }
 
@@ -107,7 +111,7 @@
     }
 }
 .wishlistBtn{
-    font-size: 12px;
+    font-size: 16px;
     color: #d6d6d6;
     text-transform: uppercase;
 }
