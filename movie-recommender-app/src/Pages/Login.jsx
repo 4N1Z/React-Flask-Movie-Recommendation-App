@@ -24,6 +24,7 @@ function Login({ setIsLoggedIn }) {
 
     const handleSignUpToggle = () => {
         setShowSignUp(!showSignUp);
+        
     };
 
     const handleSignUp = () => {
@@ -31,6 +32,7 @@ function Login({ setIsLoggedIn }) {
         setIsLoggedIn(true);
         // alert('Success');
         navigate('/Home');
+        alert("created account successfully");
 
 
     }
@@ -101,20 +103,7 @@ function Login({ setIsLoggedIn }) {
                         </div>
                     </div>
                 </form>
-                <div class="area" >
-                    <ul class="circles">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div >
+             
             </div>
         );
     }
@@ -173,7 +162,7 @@ function Login({ setIsLoggedIn }) {
                     <a className="loginButtonText" onClick={handleSignUpToggle} href="#">Back to Login</a>
                 </div>
             </form>
-            <div class="area" >
+            {/* <div class="area" >
                 <ul class="circles">
                     <li></li>
                     <li></li>
@@ -186,7 +175,7 @@ function Login({ setIsLoggedIn }) {
                     <li></li>
                     <li></li>
                 </ul>
-            </div >
+            </div > */}
         </div>
 
 

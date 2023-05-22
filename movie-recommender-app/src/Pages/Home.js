@@ -4,6 +4,8 @@ import Footer from "./Components/Footer";
 import "./Components/styles/HomeStyles.css";
 import MovieCard from "./Components/MovieCard";
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import WishlistPage from "./WishlistPage";
 
 const Home = () => {
   const apiKey = "api_key=43ced63edc709f31aa0d76ba4451e0d2";
@@ -18,6 +20,12 @@ const Home = () => {
 
   const [mood, setMood] = useState("");
   const [menu, setMenu] = useState("");
+
+  const [wishlist, setWishlist] = useState([]);
+
+  const addToWishlist = (movie) => {
+    setWishlist((prevWishlist) => [...prevWishlist, movie]);
+  };
 
   useEffect(() => {
     setCurrMovies([]);
@@ -70,7 +78,7 @@ const Home = () => {
     currMovies.map((movie) => {
       if (movie) {
         return (
-          <MovieCard key={movie.id + movie.original_title} movie={movie} />
+          <MovieCard key={movie.id + movie.original_title} movie={movie} addToWishlist={addToWishlist}/>
         );
       } else {
         return null;
@@ -107,7 +115,7 @@ const Home = () => {
     // setVisibility(false)
     if (mood === "Happy") {
       clearSelectedGenres();
-      setSelectedGenres([...selectedGenres, 10749, 12]);
+      setSelectedGenres([...selectedGenres, 9648, 12]);
       getRecommendedMovies();
     } else if (mood === "Relaxed") {
       clearSelectedGenres();
@@ -127,8 +135,8 @@ const Home = () => {
       getRecommendedMovies();
     } else if (mood === "Bored") {
       clearSelectedGenres();
-      selectedGenres.empty();
-      setSelectedGenres([...selectedGenres, 53, 12]);
+      // selectedGenres.empty();
+      setSelectedGenres([...selectedGenres, 14]);
       getRecommendedMovies();
     } else if (mood === "Confused") {
       clearSelectedGenres();
@@ -161,6 +169,7 @@ const Home = () => {
   // }
 
   return (
+
     <div className="container-fluid">
       <div className="HomePage">
         <NavBar searchOn = {list} isHome={false} />
@@ -232,7 +241,12 @@ const Home = () => {
       <div className="HomeFooter">
         <Footer />
       </div>
+      {/* <Link to="/wishlist">Go to Wishlist</Link> */}
+
+         
+     
     </div>
+     
   );
 };
 

@@ -20,9 +20,10 @@ const SearchResult = () => {
   const [genreList, setGenreList] = useState([{}]);
   const [currGenre, setCurrGenre] = useState([{}]);
   const [videoData, setVideoData] = useState([]);
-  const [playTrailer, setPlayTrailer] = useState(0);
+  const [playTrailer, setPlayTrailer] = useState(false);
   const [addMovie, setAddMovie] = useState([]);
   const [addToList, setAddToList] = useState(true);
+  const [isCopied, setIsCopied] = useState(true);
   const gotCast = (castData) => {
     setCastMembers([]);
 
@@ -146,13 +147,26 @@ const SearchResult = () => {
     });
 
   const handleClick = () => {
-    if(addToList){
+    if (addToList) {
       alert("Added to Wishlist");
-    }else{
-      alert("Removed from list")
+    } else {
+      alert("Removed from list");
     }
     setAddToList(!addToList);
     <Wishlist searchedMovie={addMovie} />;
+  };
+
+  const handleCopyClick = () => {
+    const currentURL = window.location.href;
+    navigator.clipboard
+      .writeText(currentURL)
+      .then(() => {
+        alert("URL copied to clipboard!");
+        setIsCopied(!isCopied);
+      })
+      .catch((error) => {
+        console.error("Failed to copy URL:", error);
+      });
   };
 
   const imgLink = "https://image.tmdb.org/t/p/original";
@@ -206,37 +220,60 @@ const SearchResult = () => {
                   return null;
                 })}
               </div>
+              <div className="shareBtnAndDetail">
+                <div className="detailOfMovie">
+                  <div>
+                    <b>Rating{" : "}</b>
+                    {searchedMovie.vote_average}
+                    {"/10 "}
 
-              <div>
-                <b>Rating{" : "}</b>
-                {searchedMovie.vote_average}
-                {"/10 "}
+                    <i className="fa-solid fa-star"></i>
+                  </div>
+                  <div>
+                    <b> Release Date </b>
+                    {" : "} {searchedMovie.release_date}
+                  </div>
+                  <div>
+                    <b>Genres</b>
+                    {" : "}
+                    {currGenre ? displayGenre() : null}
+                  </div>
+                </div>
 
-                <i className="fa-solid fa-star"></i>
+                <div>
+                  <button
+                    className={isCopied ? "copyBtn" : "copiedBtn"}
+                    onClick={handleCopyClick}
+                  >
+                    {isCopied ? (
+                      <i className="fa-solid fa-copy"> </i>
+                    ) : (
+                      <i className="fa-solid fa-check"></i>
+                    )}
+                  </button>
+                </div>
               </div>
-              <div>
-                <b> Release Date </b>
-                {" : "} {searchedMovie.release_date}
-              </div>
-              <div>
-                <b>Genres</b>
-                {" : "}
-                {currGenre ? displayGenre() : null}
-              </div>
+
               <div className="btnsbar1">
                 <div>
                   <button
                     className="trailer-bttn"
-                    onClick={() => setPlayTrailer(false)}
+                    onClick={() => setPlayTrailer(!playTrailer)}
                   >
                     <i className="fa-solid fa-play"></i>
                     {" Watch Trailer"}
                   </button>
                 </div>
-                <div >
-                  <button className={addToList ? "addingBtn" : "addedBtn"} onClick={handleClick}>
-                  {addToList ?  <i className="fa-solid fa-plus"> Add to List </i> :
-                     <i className="fa-solid fa-check">   Added</i> }
+                <div>
+                  <button
+                    className={addToList ? "addingBtn" : "addedBtn"}
+                    onClick={handleClick}
+                  >
+                    {addToList ? (
+                      <i className="fa-solid fa-plus"> Add to List </i>
+                    ) : (
+                      <i className="fa-solid fa-check"> Added</i>
+                    )}
                   </button>
                 </div>
               </div>

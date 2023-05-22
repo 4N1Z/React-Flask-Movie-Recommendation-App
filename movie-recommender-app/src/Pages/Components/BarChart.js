@@ -76,7 +76,9 @@ function BarChart(props) {
   };
 
   return (
-    <div>
+    <div className="grpahContainer">
+      <h3> Graph Plot </h3>
+        
       <div className="lineGraph">
         {/* BAR GRAPH
           <Bar data={data} /> */}

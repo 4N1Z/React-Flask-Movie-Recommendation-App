@@ -58,16 +58,29 @@
 }
 
 .movie-voting {
+
     position: absolute;
     right: 25px;
     top: 5px;
     background-color: #0f1014;
     border: 1px solid gray;
     padding: 10px;
+    margin-bottom: 5px;
     font-size: 12px;
-    border-radius: 25px;
+    border-radius: 6px;
 }
-
+.fa2star{
+    padding: 0px;
+    font-size: 12px;
+}
+.addToWishListBtn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 32px;
+    width:min-content;
+    background-color: rgb(35, 35, 35);
+}
 @media screen and (max-width: 950px) {
     .movie-voting {
         right: 3.5%;

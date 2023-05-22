@@ -141,13 +141,28 @@
     /* text-align: center; */
     align-items: center;
 }
+.copiedBtn , .copyBtn{
+    display: flex;
+    font-size: large;
+    font-family: 'Montserrat';
+    width: fit-content;
+    height: 35px;
+    /* text-align: center; */
+    align-items: center;
+}
 .addingBtn i, .addedBtn i{
     padding: 0px;
     font-size: 12px;
 
 }
 
+.shareBtnAndDetail{
+    display: flex;
+}
 .addedBtn{
+    background-color:green;
+}
+.copiedBtn{
     background-color:green;
 }
 @media screen and (max-width: 1080px) {
@@ -205,6 +220,8 @@
 
 
 .reviewContainer {
+    
+    color:#fff;
 
     background-color: #000000df;
     border-radius: 2px solid #fff;
