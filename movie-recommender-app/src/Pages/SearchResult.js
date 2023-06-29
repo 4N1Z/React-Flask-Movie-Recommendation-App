@@ -325,7 +325,7 @@ const SearchResult = () => {
         <div className="container recommendedGrid">{RenderMovies()}</div>
       </div>
       <div></div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
